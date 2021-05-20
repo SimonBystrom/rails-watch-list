@@ -1,15 +1,21 @@
-<div class="list-container">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.img_url %>);">
+  <div class="container">
+    <h1> <%= @list.name %> </h1>
+    <p>Press the round + to add movie to list!</p>
+  </div>
+</div>
 
-  <h1> <%= @list.name %> </h1>
+
   <div class="d-flex flex-wrap justify-content-start align-items-start">
     <% @list.bookmarks.each do |bookmark| %>
-       <div class="card-product m-2">
+       <div class="card-product m-2 relative align-items-start">
           <img src= <%= bookmark.movie.poster_url %> />
           <div class="card-product-infos flex-grow-1">
             <h2> <%= bookmark.movie.title %> </h2>
             <p><strong>Rating: </strong> <%= bookmark.movie.rating %> </p>
+            <p> <%= bookmark.comment %> </p>
           </div>
-          <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'btn btn-warning me-2'  %>
+          <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'btn btn-warning me-2 delete-btn'  %>
         </div>
     <% end %>
     <div class="card-add-container relative">
@@ -24,5 +30,5 @@
     </div>
 
   </div>
-<%= link_to 'back' , lists_path, class: 'btn btn-primary'  %>
+<%= link_to 'back' , lists_path, class: 'btn btn-primary m-3'  %>
 </div>
