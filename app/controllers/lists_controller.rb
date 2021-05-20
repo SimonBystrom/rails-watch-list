@@ -8,10 +8,16 @@ class ListsController < ApplicationController
   end
 
   def new
+    @list = List.new
   end
 
   def create
-
+    @list = List.new(list_params)
+    if @list.save
+      respond_to :lists
+    else
+      render :new
+    end
   end
 
   private
@@ -21,6 +27,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:)
+    params.require(:list).permit(:name, :movie)
   end
 end
