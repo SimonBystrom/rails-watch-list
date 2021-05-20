@@ -1,8 +1,20 @@
-<h1>Lists#index</h1>
-<% @lists.each do |list| %>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-    <%= list.name %>
-    <%= link_to '', list_path(list), class: 'card-category-link' %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Movie List Maker</h1>
+    <p>Create movie lists and share them with your friends!</p>
+    <% if @lists.any? %>
+      <%= link_to 'Add List', new_list_path, class: 'btn btn-success' %>
+    <% else %>
+       <%= link_to 'Get Started', new_list_path, class: 'btn btn-success' %>
+    <% end %>
   </div>
-<% end %>
-<%= link_to 'New', new_list_path  %>
+</div>
+<h2 class="m-3 p-2 border-bottom">Lists</h2>
+<div class="d-flex justify-content-start">
+  <% @lists.each do |list| %>
+    <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= list.name %>
+      <%= link_to '', list_path(list), class: 'card-category-link' %>
+    </div>
+  <% end %>
+</div>
