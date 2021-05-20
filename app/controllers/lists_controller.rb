@@ -14,9 +14,9 @@ class ListsController < ApplicationController
   def create
     @list = List.new(list_params)
     if @list.save
-      respond_to :lists
+      redirect_to :lists
     else
-      render :new_list
+      render :new
     end
   end
 
@@ -27,6 +27,6 @@ class ListsController < ApplicationController
   end
 
   def list_params
-    params.require(:list).permit(:name, :movie)
+    params.require(:list).permit(:name)
   end
 end

@@ -2,23 +2,27 @@
 
   <h1> <%= @list.name %> </h1>
   <div class="d-flex flex-wrap justify-content-start align-items-start">
-    <% @list.movies.each do |movie| %>
+    <% @list.bookmarks.each do |bookmark| %>
        <div class="card-product m-2">
-          <img src= <%= movie.poster_url %> />
-          <div class="card-product-infos">
-            <h2> <%= movie.title %> </h2>
-            <p><strong>Rating: </strong> <%= movie.rating %> </p>
+          <img src= <%= bookmark.movie.poster_url %> />
+          <div class="card-product-infos flex-grow-1">
+            <h2> <%= bookmark.movie.title %> </h2>
+            <p><strong>Rating: </strong> <%= bookmark.movie.rating %> </p>
           </div>
+          <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'btn btn-warning me-2'  %>
         </div>
     <% end %>
-    <div class="card-add-container">
+    <div class="card-add-container relative">
        <div class="card-add m-2 d-flex justify-content-center align-items-center">
-          <%= link_to 'test', new_list_path(@list)  %>
+
+          <%= link_to new_bookmark_path do %>
+            <i class="fas fa-plus " style="font-size: 40px;"> </i>
+          <% end %>
         </div>
       </div>
 
     </div>
 
   </div>
-
+<%= link_to 'back' , lists_path, class: 'btn btn-primary'  %>
 </div>
