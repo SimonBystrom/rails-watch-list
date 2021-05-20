@@ -73,12 +73,13 @@
   height: 180px;
   display: flex;
   justify-content: center;
+  align-items: center;
 
 }
 .card-add {
   overflow: hidden;
-  height: 180px;
-  width: 180px;
+  height: 90px;
+  width: 90px;
   border-radius: 50%;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -109,6 +110,10 @@
   position: absolute;
   bottom: 8px;
   right: 8px;
+  i{
+    font-size: 32px;
+    color: $orange;
+  }
 }
 
 

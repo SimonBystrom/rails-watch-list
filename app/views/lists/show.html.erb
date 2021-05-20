@@ -6,7 +6,7 @@
 </div>
 
 
-  <div class="d-flex flex-wrap justify-content-start align-items-start">
+<div class="d-flex flex-wrap justify-content-start align-items-start">
     <% @list.bookmarks.each do |bookmark| %>
        <div class="card-product m-2 relative align-items-start">
           <img src= <%= bookmark.movie.poster_url %> />
@@ -15,7 +15,9 @@
             <p><strong>Rating: </strong> <%= bookmark.movie.rating %> </p>
             <p> <%= bookmark.comment %> </p>
           </div>
-          <%= link_to 'Delete', bookmark_path(bookmark), method: :delete, class: 'btn btn-warning me-2 delete-btn'  %>
+          <%= link_to bookmark_path(bookmark), method: :delete, class: 'delete-btn' do %>
+            <i class="fas fa-backspace"></i>
+          <% end %>
         </div>
     <% end %>
     <div class="card-add-container relative">
@@ -25,10 +27,5 @@
             <i class="fas fa-plus " style="font-size: 40px;"> </i>
           <% end %>
         </div>
-      </div>
-
     </div>
-
-  </div>
-<%= link_to 'back' , lists_path, class: 'btn btn-primary m-3'  %>
 </div>
