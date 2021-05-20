@@ -2,9 +2,6 @@
 <% @lists.each do |list| %>
   <div>
     <h3> <%= list.name %> </h3>
-    <% list.movies.each do |movie| %>
-      <p><%= movie.title %></p>
-    <% end %>
   </div>
 
 <% end %>

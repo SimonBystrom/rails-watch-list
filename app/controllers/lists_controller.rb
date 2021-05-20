@@ -16,7 +16,7 @@ class ListsController < ApplicationController
     if @list.save
       respond_to :lists
     else
-      render :new
+      render :new_list
     end
   end
 
