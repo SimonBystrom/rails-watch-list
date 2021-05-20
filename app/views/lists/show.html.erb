@@ -1,5 +1,24 @@
-<h1>  </h1>
+<div class="list-container">
 
-  <% @list.movies.each do |movie| %>
-      <p><%= movie.title %></p>
-  <% end %>
+  <h1> <%= @list.name %> </h1>
+  <div class="d-flex flex-wrap justify-content-start align-items-start">
+    <% @list.movies.each do |movie| %>
+       <div class="card-product m-2">
+          <img src= <%= movie.poster_url %> />
+          <div class="card-product-infos">
+            <h2> <%= movie.title %> </h2>
+            <p><strong>Rating: </strong> <%= movie.rating %> </p>
+          </div>
+        </div>
+    <% end %>
+    <div class="card-add-container">
+       <div class="card-add m-2 d-flex justify-content-center align-items-center">
+          <%= link_to 'test', new_list_path(@list)  %>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
