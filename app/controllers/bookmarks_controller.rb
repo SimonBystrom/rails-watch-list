@@ -9,6 +9,7 @@ class BookmarksController < ApplicationController
     # adds a movie to the current list
     @list = List.find(params[:id])
     @bookmark = Bookmark.new(bookmark_params)
+    # @movie = Movie.new(INFO FROM FORM)
     # adds the list ID to the bookmark, creating the join table relationship
     @bookmark.list = @list
 
