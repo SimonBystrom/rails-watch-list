@@ -12,7 +12,7 @@
 <h2 class="m-3 p-2 border-bottom">Lists</h2>
 <div class="d-flex justify-content-start">
   <% @lists.each do |list| %>
-    <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.img_url %>)">
+    <div class="card-category m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key, :width => 800, :height => 600, :crop => :fill) : image_path(list.img_url) %>)">
       <%= list.name %>
       <%= link_to '', list_path(list), class: 'card-category-link' %>
       <div class="d-flex align-items-center number-of-movies">
