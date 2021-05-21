@@ -1,4 +1,4 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.photo.attached? ? cl_image_path(@list.photo.key) : image_path(@list.img_url) %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= @list.img_url) %>);">
   <div class="container">
     <h1> <%= @list.name %> </h1>
     <p>Press the round + to add movie to list!</p>
